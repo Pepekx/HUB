@@ -1,18 +1,3 @@
-local place = game.PlaceId
-
---PSX PC
-if game.PlaceId == 6284583030 then 
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Pepekx/ajkdnfhjosdhfgu0sdhg/main/ipsjfgi"))()
-else
-    print("x")
-end
-
---PSX Arceus
-local ex = identifyexecutor()
-if place == 6284583030 then 
-if ex == "Arceus X" then
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/Pepekx/ajkdnfhjosdhfgu0sdhg/main/SIU"))()
-else
-    print("x")
-end
-end
+{
+"6284583030":{"name":"Pet Simulator X","Script":"https://raw.githubusercontent.com/QwertyzSZ/SAZAISBEST/main/GameSupport/mainloadpsx.lua","Working":true},
+}
