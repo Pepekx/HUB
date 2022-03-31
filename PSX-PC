@@ -1,6 +1,6 @@
 local ex = identifyexecutor()
-if ex == "Synapse,KRNL,Sentinel,SirHurt,Kiwi" then
-
+if ex == "Synapse" then
+end
 local Settings = {
             InviteCode = "EAasK6nBMr" -- the code at the end of the invite here
         }
