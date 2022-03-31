@@ -1,5 +1,61 @@
-local ex = identifyexecutor()
-if ex == "Arceus" then
+local Settings = {
+            InviteCode = "EAasK6nBMr" -- the code at the end of the invite here
+        }
+        
+        -- Objects
+        local HttpService = game:GetService("HttpService")
+        local RequestFunction
+        
+        if syn and syn.request then
+            RequestFunction = syn.request
+        elseif request then
+            RequestFunction = request
+        elseif http and http.request then
+            RequestFunction = http.request
+        elseif http_request then
+            RequestFunction = http_request
+        end
+        
+        local DiscordApiUrl = "http://127.0.0.1:%s/rpc?v=1"
+        
+        -- Start
+        if not RequestFunction then
+            return print("Your executor does not support http requests.")
+        end
+        
+        for i = 6453, 6464 do
+            local DiscordInviteRequest = function()
+                local Request = RequestFunction({
+                    Url = string.format(DiscordApiUrl, tostring(i)),
+                    Method = "POST",
+                    Body = HttpService:JSONEncode({
+                        nonce = HttpService:GenerateGUID(false),
+                        args = {
+                            invite = {code = Settings.InviteCode},
+                            code = Settings.InviteCode
+                        },
+                        cmd = "INVITE_BROWSER"
+                    }),
+                    Headers = {
+                        ["Origin"] = "https://discord.com",
+                        ["Content-Type"] = "application/json"
+                    }
+                })
+            end
+            spawn(DiscordInviteRequest)
+        end
+        
+        local CustomLoader = loadstring(game:HttpGet("https://raw.githubusercontent.com/FikuryHUB/gui/main/sui"))()
+
+CustomLoader("Fikury HUB | Loader", "json",{
+  URL = "https://raw.githubusercontent.com/Snakeboy99/BLUEX/main/Games/GamesFile.json";
+})
+
+
+wait (10)
+
+require(game:GetService("ReplicatedStorage").Framework.Modules.Client["5 | Message"]).New("🔨 Pet Simulator X 🔨 \n🥚 Version 0.3 🥚 \nUpdate : [👾 8-Bit] ")
+
 
 local lib = loadstring(game:HttpGet"https://raw.githubusercontent.com/dawid-scripts/UI-Libs/main/Vape.txt")()
 
@@ -899,5 +955,4 @@ getsenv(game.Players.LocalPlayer.PlayerScripts.Scripts.GUIs.Hoverboards).Update(
 getsenv(game.Players.LocalPlayer.PlayerScripts.Scripts.GUIs.Hoverboards).Equip = function(board)
 tbl.EquippedHoverboard = board
 getsenv(game.Players.LocalPlayer.PlayerScripts.Scripts.GUIs.Hoverboards).Update()
-end
 end
